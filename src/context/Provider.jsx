@@ -5,6 +5,10 @@ import Context from './Context';
 function Provider({ children }) {
   const [data, setData] = useState([]);
   const [keys, setKeys] = useState([]);
+  const [filters, setFilter] = useState({
+    filterByName: { name: '' },
+  });
+  const [filteredPlanets, setFilteredPlanets] = useState([]);
 
   useEffect(() => {
     const fetchAPI = async () => {
@@ -19,10 +23,24 @@ function Provider({ children }) {
     fetchAPI();
   }, []);
 
+  useEffect(() => {
+    const { filterByName: { name } } = filters;
+    const planets = data
+      .filter((planet) => planet.name.toLowerCase().includes(name.toLowerCase()));
+    setFilteredPlanets(planets);
+  }, [data, filters]);
+
+  function handleFilterByName({ target: { value } }) {
+    setFilter({ ...filters, filterByName: { name: value } });
+  }
+
   const contextValue = {
     data,
     setData,
     keys,
+    filters,
+    filteredPlanets,
+    handleFilterByName,
   };
 
   return (

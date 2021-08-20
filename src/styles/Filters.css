@@ -1,0 +1,33 @@
+header {
+  align-items: center;
+  background-color: rgb(180, 33, 33);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 100%;
+}
+
+label {
+  background-color: rgb(180, 33, 33);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+h2 {
+  background-color: rgb(180, 33, 33);
+  font-size: 28px;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+input[type="text"] {
+  background-color: white;
+  font-size: 20px;
+  text-align: center;
+  width: 30vw;
+}

@@ -3,7 +3,7 @@ import Context from '../context/Context';
 import '../styles/Table.css';
 
 function Table() {
-  const { data, keys } = useContext(Context);
+  const { filteredPlanets, keys } = useContext(Context);
 
   function generateTableHeader() {
     return (
@@ -18,7 +18,7 @@ function Table() {
   function generateTableRows() {
     return (
       <tbody>
-        { data.map((e) => (
+        { filteredPlanets.map((e) => (
           <tr key={ e.name }>
             { keys.map((key) => <td key={ key }>{e[key]}</td>)}
           </tr>
