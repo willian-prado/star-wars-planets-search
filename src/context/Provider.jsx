@@ -7,6 +7,12 @@ function Provider({ children }) {
   const [keys, setKeys] = useState([]);
   const [filters, setFilter] = useState({
     filterByName: { name: '' },
+    filterByNumericValues:
+      {
+        column: 'diameter',
+        comparison: 'maior que',
+        value: 10000,
+      },
   });
   const [filteredPlanets, setFilteredPlanets] = useState([]);
 
@@ -34,6 +40,32 @@ function Provider({ children }) {
     setFilter({ ...filters, filterByName: { name: value } });
   }
 
+  function handleChange({ target: { value, name } }) {
+    setFilter({ ...filters,
+      filterByNumericValues: { ...filters.filterByNumericValues, [name]: value } });
+  }
+
+  function selectedFilters() {
+    const { column, comparison, value } = filters.filterByNumericValues;
+    let filtered = filteredPlanets;
+
+    switch (comparison) {
+    case 'maior que':
+      filtered = filtered.filter((planet) => Number(planet[column]) > Number(value));
+      break;
+    case 'menor que':
+      filtered = filtered.filter((planet) => Number(planet[column]) < Number(value));
+      break;
+    case 'igual a':
+      filtered = filtered.filter((planet) => Number(planet[column]) === Number(value));
+      break;
+    default:
+      filtered = filteredPlanets;
+    }
+
+    setFilteredPlanets(filtered);
+  }
+
   const contextValue = {
     data,
     setData,
@@ -41,6 +73,8 @@ function Provider({ children }) {
     filters,
     filteredPlanets,
     handleFilterByName,
+    handleChange,
+    selectedFilters,
   };
 
   return (
