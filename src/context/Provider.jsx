@@ -7,12 +7,12 @@ function Provider({ children }) {
   const [keys, setKeys] = useState([]);
   const [filters, setFilter] = useState({
     filterByName: { name: '' },
-    filterByNumericValues:
-      {
-        column: 'diameter',
-        comparison: 'maior que',
-        value: 10000,
-      },
+  });
+  const [numericFilters, setNumericFilter] = useState([]);
+  const [filterByNumericValues, setNumeric] = useState({
+    column: 'diameter',
+    comparison: 'maior que',
+    value: 10000,
   });
   const [filteredPlanets, setFilteredPlanets] = useState([]);
 
@@ -41,12 +41,11 @@ function Provider({ children }) {
   }
 
   function handleChange({ target: { value, name } }) {
-    setFilter({ ...filters,
-      filterByNumericValues: { ...filters.filterByNumericValues, [name]: value } });
+    setNumeric({ ...filterByNumericValues, [name]: value });
   }
 
   function selectedFilters() {
-    const { column, comparison, value } = filters.filterByNumericValues;
+    const { column, comparison, value } = filterByNumericValues;
     let filtered = filteredPlanets;
 
     switch (comparison) {
@@ -64,6 +63,7 @@ function Provider({ children }) {
     }
 
     setFilteredPlanets(filtered);
+    setNumericFilter([...numericFilters, filterByNumericValues]);
   }
 
   const contextValue = {
@@ -75,6 +75,8 @@ function Provider({ children }) {
     handleFilterByName,
     handleChange,
     selectedFilters,
+    filterByNumericValues,
+    numericFilters,
   };
 
   return (
