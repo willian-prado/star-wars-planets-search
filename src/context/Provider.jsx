@@ -22,7 +22,7 @@ function Provider({ children }) {
       const { results } = await fetch(URL).then((response) => response.json());
       results.forEach((e) => delete e.residents);
       const getKeys = Object.keys(results[0]);
-      setData(results);
+      setData(results.sort((a, b) => a.name.localeCompare(b.name)));
       setKeys(getKeys);
     };
 

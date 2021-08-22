@@ -20,7 +20,11 @@ function Table() {
       <tbody>
         { filteredPlanets.map((e) => (
           <tr key={ e.name }>
-            { keys.map((key) => <td key={ key }>{e[key]}</td>)}
+            <td data-testid="planet-name">
+              {e.name}
+            </td>
+            { keys.filter((key) => key !== 'name')
+              .map((key) => <td key={ key }>{e[key]}</td>)}
           </tr>
         )) }
       </tbody>
