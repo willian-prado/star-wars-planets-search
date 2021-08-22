@@ -9,7 +9,7 @@ function Provider({ children }) {
     filterByName: { name: '' },
   });
   const [numericFilters, setNumericFilter] = useState([]);
-  const [filterByNumericValues, setNumeric] = useState({
+  const [filterByNumericValues, setFilterByNumericValues] = useState({
     column: 'diameter',
     comparison: 'maior que',
     value: 10000,
@@ -41,7 +41,7 @@ function Provider({ children }) {
   }
 
   function handleChange({ target: { value, name } }) {
-    setNumeric({ ...filterByNumericValues, [name]: value });
+    setFilterByNumericValues({ ...filterByNumericValues, [name]: value });
   }
 
   function selectedFilters() {
@@ -76,7 +76,9 @@ function Provider({ children }) {
     handleChange,
     selectedFilters,
     filterByNumericValues,
+    setFilterByNumericValues,
     numericFilters,
+    setFilteredPlanets,
   };
 
   return (

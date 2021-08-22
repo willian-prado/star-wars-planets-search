@@ -8,6 +8,9 @@ function Filters() {
     handleChange,
     selectedFilters,
     filterByNumericValues,
+    setFilterByNumericValues,
+    setFilteredPlanets,
+    data,
   } = useContext(Context);
   const [columnOptions, setColumn] = useState([
     'population', 'orbital_period', 'diameter', 'rotation_period', 'surface_water',
@@ -15,14 +18,30 @@ function Filters() {
   const [comparisonOptions] = useState([
     'maior que', 'menor que', 'igual a',
   ]);
+  const [activeFilter, setActiveFilter] = useState(false);
+  const [usedColumns, setUsedColumns] = useState([]);
 
   function handleClick() {
     selectedFilters();
+    let columns = columnOptions;
     const removeColumn = filterByNumericValues.column;
-    console.log(columnOptions);
-    const newColumns = columnOptions.filter((col) => col !== removeColumn);
-    console.log(newColumns);
-    setColumn(newColumns);
+    columns = columns.filter((col) => col !== removeColumn);
+    setColumn(columns);
+    if (!(removeColumn in usedColumns)) setUsedColumns([...usedColumns, removeColumn]);
+    setActiveFilter(true);
+    setFilterByNumericValues({ ...filterByNumericValues, column: columns[0] });
+  }
+
+  function handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      handleClick();
+    }
+  }
+
+  function resetFilter({ target }) {
+    setFilteredPlanets(data);
+    if (!(target.name in columnOptions)) setColumn([...columnOptions, target.name]);
+    setUsedColumns(usedColumns.filter((col) => col !== target.name));
   }
 
   return (
@@ -64,6 +83,7 @@ function Filters() {
           className="select-filter"
           data-testid="value-filter"
           onChange={ handleChange }
+          onKeyPress={ handleKeyPress }
           value={ filterByNumericValues.value }
         />
         <button
@@ -73,6 +93,20 @@ function Filters() {
         >
           Filtrar
         </button>
+        <div>
+          { activeFilter
+          && usedColumns.map((col) => (
+            <div key={ col } data-testid="filter">
+              {col}
+              <button
+                type="button"
+                onClick={ resetFilter }
+                name={ col }
+              >
+                X
+              </button>
+            </div>)) }
+        </div>
       </label>
     </header>
   );
