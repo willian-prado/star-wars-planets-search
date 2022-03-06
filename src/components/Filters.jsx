@@ -13,6 +13,7 @@ function Filters() {
     filteredPlanets,
     data,
   } = useContext(Context);
+
   const [columnOptions, setColumn] = useState([
     'population', 'orbital_period', 'diameter', 'rotation_period', 'surface_water',
   ]);
@@ -67,6 +68,7 @@ function Filters() {
   return (
     <header>
       <h2> Star Wars Planets Search </h2>
+      { /* Filter by Name */}
       <label htmlFor="name-search">
         Busca por nome
         <input
@@ -77,6 +79,7 @@ function Filters() {
           value={ filters.filterByName.name }
         />
       </label>
+      { /*  Numeric filter  */ }
       <div className="container">
         <div className="filter-container">
           <h3>Filtro por característica</h3>
@@ -128,7 +131,7 @@ function Filters() {
               </button>
             </div>)) }
           </div>
-
+          { /* Sort by column */ }
         </div>
         <div className="sort-container">
           <h3>Ordenar por coluna</h3>
@@ -145,6 +148,7 @@ function Filters() {
           <div className="radio-container">
             <p>Ascendente</p>
             <input
+              className="radiobtn"
               type="radio"
               name="choice"
               value="ASC"
@@ -154,6 +158,7 @@ function Filters() {
               ) }
             />
             <input
+              className="radiobtn"
               type="radio"
               name="choice"
               value="DESC"

@@ -32,7 +32,7 @@ select {
 }
 
 label {
-  color: black;
+  color: white;
   font-size: 20px;
   font-weight: 800;
   text-align: center;
@@ -85,6 +85,11 @@ button {
   margin: 0 auto;
   padding: 5px;
   width: 50%;
+}
+
+.radiobtn {
+  transform: scale(2);
+  background-color: white;
 }
 
 .select-order {
