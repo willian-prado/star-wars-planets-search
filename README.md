@@ -2,6 +2,8 @@
 
 > Oitavo projeto do módulo de Front-end do curso de desenvolvimento web da Trybe.
 
+**Contexto**
+
 Esse projeto aprofunda nossos conhecimentos em React, introduzindo construção de componentes funcionais, Hooks e Context API, uma forma alternativa e nativa do React para lidar com estados globais.
 
 **Objetivo do projeto**
@@ -16,9 +18,16 @@ Construir uma aplicação que consulta uma  [API](https://swapi-trybe.herokuapp.
 - Utilizar o _React Hook useEffect_;
 - Criar _React Hooks_ customizados.
 
+**Tecnologias utilizadas**
+
+- <a href="https://www.w3.org/html/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" title="HTML5" align="center" height="35"/> - HTML</a> 
+- <a href="https://www.w3schools.com/css/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" title="CCS3" align="center" height="35"/> - CSS</a>
+- <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" title="JavaScript" align="center" height="30"/> - JavaScript</a>
+- <a href="https://reactjs.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" title="React" align="center" height="35"/> - React</a>
+
 ---
 
-### Lista de requisitos propostos:
+### Lista de requisitos propostos pela Trybe:
 
 #### Obrigatórios
 
