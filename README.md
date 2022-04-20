@@ -1,16 +1,16 @@
 ## Projeto Star Wars Planets Search
 
-> Oitavo projeto do módulo de Front-end do curso de desenvolvimento web da Trybe.
+> Oitavo projeto do módulo de Front-end do curso de desenvolvimento web da [Trybe](https://www.betrybe.com/)
 
 **Contexto**
 
-Esse projeto aprofunda nossos conhecimentos em React, introduzindo construção de componentes funcionais, Hooks e Context API, uma forma alternativa e nativa do React para lidar com estados globais.
+Esse projeto aprofunda nossos conhecimentos em React, introduzindo a construção de componentes funcionais, React Hooks e Context API, uma forma alternativa e nativa do React para lidar com estados globais.
 
 **Objetivo do projeto**
 
-Construir uma aplicação que consulta uma  [API](https://swapi-trybe.herokuapp.com/api/planets/) para recuperar dados dos planetas do universo de Star Wars. A partir dos dados dessa API, criar uma tabela de planetas que podem ser filtrados por suas características, como população, período orbital, diâmetro e outras.
+Construir uma aplicação que consulta uma [API](https://swapi-trybe.herokuapp.com/api/planets/) para recuperar dados dos planetas do universo de Star Wars. A partir dos dados dessa API, criar uma tabela de planetas que podem ser filtrados por suas características, como população, período orbital, diâmetro e outras.
 
-**Principais habilidades desenvolvidas nesse trabalho:**
+**Principais habilidades desenvolvidas nesse trabalho**
 
 - Utilizar a _Context API_ do **React** para gerenciar estado;
 - Utilizar o _React Hook useState_;
@@ -74,3 +74,6 @@ Essa ordenação deve ser feita via filtro: um dropdown selecionará a coluna a 
 
 O dropdown deve ser um elemento `select` com a propriedade `data-testid='column-sort'`, com as opções das colunas escolhíveis em seu interior. Deve haver também, dois `inputs` de tipo `radio`, com propriedades `data-testid='column-sort-input-asc'` e `data-testid='column-sort-input-desc'`, para definir o sentido da ordenação (com `value` sendo `ASC` ou `DESC`) e um botão para submeter a ordenação, com uma tag `button` e a propriedade `data-testid='column-sort-button'`.
 
+---
+
+[Ir para a lista de projetos](https://github.com/willian-prado/trybe-records)
